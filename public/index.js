@@ -5,6 +5,6 @@ const getCars = async () => {
         console.log(obj);
     }
     xhr.getResponseHeader("Content-type", "application/json"); 
-    xhr.open("GET", "/cars", true);
+    xhr.open("GET", "/cars");
     xhr.send();
 }

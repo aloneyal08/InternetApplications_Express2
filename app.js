@@ -15,10 +15,6 @@ app.use(express.static("public"));
 
 app.use('/', cars);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
 mongoose.connection.once('open', () => {
   app.listen(88);
   console.log('Server started');
