@@ -4,7 +4,7 @@ const getCars = async () => {
         const obj = JSON.parse(xhr.responseText); 
         console.log(obj);
     }
-    xhr.getResponseHeader("Content-type", "application/json"); 
+    xhr.setRequestHeader("Content-type", "application/json"); 
     xhr.open("GET", "/cars");
     xhr.send();
 }
@@ -22,7 +22,7 @@ const submit = () => {
             price: inputs[11].value
         };
     }
-    xhr.getResponseHeader("Content-type", "application/json"); 
+    xhr.setRequestHeader("Content-type", "application/json"); 
     xhr.open("POST", "/cars");
     xhr.send();
 }
