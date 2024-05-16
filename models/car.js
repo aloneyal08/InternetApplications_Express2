@@ -15,7 +15,7 @@ const Car = new Schema({
     required: true
   },
   color: {
-    type: Array,
+    type: String,
     required: true
   },
   year: {
