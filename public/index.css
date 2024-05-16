@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+#title{
+    align-self: center;
+}
+#cardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    transition: 0.1s;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 75px;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(228, 228, 228);
+}
+#add:hover{
+    transition: 0.1s;
+    border: 4px solid black;
+    border-radius: 8px;
+    font-size: 100px;
+    background-color: rgb(210, 210, 210);
+}
+#addForm{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    border: 1px solid black;
+    padding: 25px 50px 25px 50px;
+}
+.formPart{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+input.formPart{
+    width: 100%;
+}
+input[type=color].formPart{
+    border: none;
+}
