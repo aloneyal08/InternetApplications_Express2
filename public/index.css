@@ -37,25 +37,27 @@ body{
     background-color: rgb(173, 173, 173);
 }
 #addForm{
+    z-index: 10;
     position: absolute;
-    left: calc(50% - 400px);
-    top: calc(50% - 400px);
+    left: calc(50% - 20vw);
+    top: calc(50% - 40vh);
     background-color: white;
     display: none;
     flex-direction: column;
-    width: 800px;
-    height: 800px;
+    width: 40vw;
+    height: 80vh;
     border: 1px solid black;
     border-radius: 5px;
     padding: 25px 50px 25px 50px;
+    gap: 20px;
 }
 .popup{
     animation-name: show-popup;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
 }
 .popdown{
     animation: hide-popup;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
 }
 .formPart{
     margin-top: 2px;
@@ -68,6 +70,41 @@ input.formPart{
 input[type=color].formPart{
     border: none;
 }
+input[type=button].formPart, input[type=submit].formPart{
+    border-radius: 5px;
+    width: 15vw;
+    height: 7vh;
+    margin: 0 5px 0 5px;
+
+}
+input[type=button].formPart{
+    transition: 0.1s;
+    background-color: rgb(178, 0, 0);
+    border: 2px solid rgb(75, 2, 2);
+    color: white;
+}
+input[type=button].formPart:hover{
+    transition: 0.1s;
+    background-color: rgb(159, 0, 0);
+}
+input[type=button].formPart:active{
+    transition: 0.1s;
+    background-color: rgb(122, 0, 0);
+}
+input[type=submit].formPart{
+    transition: 0.1s;
+    background-color: rgb(0, 178, 24);
+    border: 2px solid rgb(2, 75, 11);
+    color: white;
+}
+input[type=submit].formPart:hover{
+    transition: 0.1s;
+    background-color: rgb(0, 159, 45);
+}
+input[type=submit].formPart:active{
+    transition: 0.1s;
+    background-color: rgb(0, 122, 26);
+}
 .colorBlock{
     display: block;
     width: 75px;
@@ -75,6 +112,11 @@ input[type=color].formPart{
 }
 .cardTxt{
     display: flex;
+}
+#btnContainer{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
 }
 @keyframes show-popup {
 	0% {
