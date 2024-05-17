@@ -63,5 +63,7 @@ const replaceAdd = () => {
 const deleteCar = (e) =>{
     const xhr = new XMLHttpRequest();
     xhr.open("DELETE", "/car");
-    xhr.send(e.parentElement.id);
+    xhr.setRequestHeader("Content-type", "application/json");
+    console.log(JSON.stringify({_id: e.parentElement.id}));
+    xhr.send(JSON.stringify({_id: e.parentElement.id}));
 }

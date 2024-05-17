@@ -1,4 +1,5 @@
 const Car = require('../models/car');
+var ObjectId = require('mongodb').ObjectId;
 
 const createCar = async (name, model, importer, color, year, price) => {
     const car = new Car({
@@ -14,7 +15,8 @@ const createCar = async (name, model, importer, color, year, price) => {
 }
 
 const getCarById = async (_id) => {
-    return await Car.find({_id: _id});
+    console.log(_id);
+    return await Car.find({_id: new ObjectId(_id)});
 }
 
 const getCars = async () => {
@@ -36,12 +38,7 @@ const updateCar = async (_id, name, model, importer, color, year, price) => {
 }
 
 const deleteCar = async (_id) => {
-    const car = await getCarById(_id);
-    if (!car)
-        return null;
-    console.log(car);
-    await car.remove();
-    return car;
+    await Car.deleteOne({_id: new ObjectId(_id)});
 }
 
 module.exports = {

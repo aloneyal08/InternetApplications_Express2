@@ -1,7 +1,6 @@
 const carService = require('../services/car');
 
 const createCar = async (req, res) => {
-  console.log(req.body);
   const newCar = await carService.createCar(req.body.name, req.body.model, req.body.importer, req.body.color, req.body.year, req.body.price);
   res.json(newCar);
 }
@@ -12,7 +11,7 @@ const getCars = async (req, res) => {
 }
 
 const getCar = async (req, res) => {
-  const car = await carService.getCarById(req.params._id);
+  const car = await carService.getCarById(req.body._id);
   if (!car) {
       return res.status(404).json({ errors: ['Car not found'] });
   }

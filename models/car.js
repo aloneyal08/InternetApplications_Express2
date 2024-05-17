@@ -26,6 +26,10 @@ const Car = new Schema({
     type: Number,
     required: true
   },
+  photo: {
+    type: String,
+    required: false
+  }
 });
 
 module.exports = mongoose.model('Car', Car);
