@@ -37,11 +37,16 @@ body{
     background-color: rgb(173, 173, 173);
 }
 #addForm{
+    position: absolute;
+    left: calc(50% - 400px);
+    top: calc(50% - 400px);
+    background-color: white;
     display: none;
     flex-direction: column;
-    width: fit-content;
-    height: fit-content;
+    width: 800px;
+    height: 800px;
     border: 1px solid black;
+    border-radius: 5px;
     padding: 25px 50px 25px 50px;
 }
 .popup{
@@ -55,6 +60,7 @@ body{
 .formPart{
     margin-top: 2px;
     margin-bottom: 2px;
+    font-size: 25px;
 }
 input.formPart{
     width: 100%;

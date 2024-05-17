@@ -35,9 +35,11 @@ const submit = () => {
         year: inputs[9].value,
         price: inputs[11].value
     };
+    getCards();
     xhr.open("POST", "/cars");
     xhr.setRequestHeader("Content-type", "application/json"); 
     xhr.send(JSON.stringify(obj));
+    replaceAdd();
 };
 const replaceAdd = () => {
     let form = document.getElementById("addForm");
@@ -62,6 +64,9 @@ const replaceAdd = () => {
 };
 const deleteCar = (e) =>{
     const xhr = new XMLHttpRequest();
+    xhr.onload = () =>{
+        getCars();
+    };
     xhr.open("DELETE", "/car");
     xhr.send(e.parentElement.id);
 }
