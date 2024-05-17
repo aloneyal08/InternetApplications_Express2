@@ -73,8 +73,9 @@ const submit = () => {
         price: inputs[11].value,
         photo: inputs[13].value
     };
-    console.log(obj);
-    getCars();
+    xhr.onload = () => {
+        getCars();
+    }
     if(isUpdate){
         xhr.open("PUT", "/car");
     }else{
@@ -88,6 +89,9 @@ let formOpen = false;
 const replaceAdd = () => {
     let form = document.getElementById("addForm");
     let btn = document.getElementById("add");
+    if(!isUpdate){
+        form.reset();
+    }
     if(formOpen){
         btn.classList.remove("popdown");
         btn.classList.add("popup");
@@ -106,11 +110,14 @@ const replaceAdd = () => {
         setTimeout(() => {
             formOpen = true;
             let sub = document.getElementById("submit");
+            let title = document.getElementById("titleForm");
             if(isUpdate){
                 sub.value = "Update Car";
+                title.textContent = "Update Car";
 
             }else{
                 sub.value = "Add Car";
+                title.textContent = "Add Car";
             }
             form.style.display = "flex";
             btn.style.display = "none";}, 400);
@@ -132,7 +139,6 @@ const showFormUpdate = (e) => {
         const xhr = new XMLHttpRequest();
         xhr.onload = () => {
             let obj = JSON.parse(xhr.responseText);
-            console.log(obj);
             inputs[1].value = obj.name;
             inputs[3].value = obj.model;
             inputs[5].value = obj.importer;

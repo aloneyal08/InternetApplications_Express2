@@ -6,10 +6,11 @@
 body {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 html{
-    font-family: stdFont, Arial, Helvetica, sans-serif;
+    font-family: monospace;
 }
 
 .background {
@@ -242,6 +243,25 @@ input[type=button].formPart:active, input[type=submit].formPart:active{
     height: 50px;
     width: auto;
     float: right;
+}
+#search{
+    width: 50vw;
+    height: 2vh;
+    padding: 10px 10px ;
+    align-self: center;
+    border: none;
+    border-radius: 5px;
+    
+}
+#search:hover{
+    height: calc(2vh - 2px);
+    border: 1px groove rgb(18, 18, 155);
+}
+#search:focus{
+    height: calc(2vh - 4px);
+    border: 2px groove rgb(17, 17, 138);
+    outline: none;
+
 }
 
 @keyframes show-popup {
