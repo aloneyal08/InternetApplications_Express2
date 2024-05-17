@@ -8,7 +8,7 @@ router.route('/cars')
 
 router.route('/car')
     .get(carController.getCar)
-    .patch(carController.updateCar)
+    .put(carController.updateCar)
     .delete(carController.deleteCar);
 
 module.exports = router;

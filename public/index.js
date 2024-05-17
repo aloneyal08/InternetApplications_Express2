@@ -59,10 +59,12 @@ const getCars = async () => {
     xhr.send();
 }
 var isUpdate = false;
+var updateId = "";
 const submit = () => {
     const xhr = new XMLHttpRequest();
     const inputs = document.querySelectorAll(".formPart");
     const obj = {
+        _id: isUpdate ? updateId : "",
         name: inputs[1].value,
         model: inputs[3].value,
         importer: inputs[5].value,
@@ -71,9 +73,10 @@ const submit = () => {
         price: inputs[11].value,
         photo: inputs[13].value
     };
+    console.log(obj);
     getCars();
     if(isUpdate){
-        xhr.open("PATCH", "/car");
+        xhr.open("PUT", "/car");
     }else{
         xhr.open("POST", "/cars");
     }
@@ -120,8 +123,7 @@ const deleteCar = (e) =>{
     };
     xhr.open("DELETE", "/car");
     xhr.setRequestHeader("Content-type", "application/json");
-    console.log(JSON.stringify({_id: e.parentElement.id}));
-    xhr.send(JSON.stringify({_id: e.parentElement.id}));
+    xhr.send(JSON.stringify({_id: e.parentElement.parentElement.id}));
 }
 const showFormUpdate = (e) => {
     if(!formOpen){
@@ -130,17 +132,19 @@ const showFormUpdate = (e) => {
         const xhr = new XMLHttpRequest();
         xhr.onload = () => {
             let obj = JSON.parse(xhr.responseText);
-            inputs[1] = obj.name;
-            inputs[3] = obj.model;
-            inputs[5] = obj.importer;
-            inputs[7] = obj.color;
-            inputs[9] = obj.year;
-            inputs[11] = obj.price;
-            inputs[13] = obj.photo;
+            console.log(obj);
+            inputs[1].value = obj.name;
+            inputs[3].value = obj.model;
+            inputs[5].value = obj.importer;
+            inputs[7].value = obj.color;
+            inputs[9].value = obj.year;
+            inputs[11].value = obj.price;
+            inputs[13].value = obj.photo;
         };
-        xhr.open("GET", "/car");
+        updateId = e.parentElement.parentElement.id;
+        xhr.open("GET", `/car?_id=${e.parentElement.parentElement.id}`);
         xhr.setRequestHeader("Content-type", "application/json");
-        xhr.send(JSON.stringify({_id: e.parentElement.id}));
+        xhr.send();
         replaceAdd();
 
     }

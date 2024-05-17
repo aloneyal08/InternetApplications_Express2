@@ -17,7 +17,6 @@ const createCar = async (name, model, importer, color, year, price, photo) => {
 }
 
 const getCarById = async (_id) => {
-    console.log(_id);
     return await Car.find({_id: new ObjectId(_id)});
 }
 
@@ -39,19 +38,19 @@ const getCars = async (key) => {
     return cars;
 }
 
-const updateCar = async (_id, name, model, importer, color, year, price) => {
-    const car = await getCarById(_id);
-    if (!car)
-        return null;
-    car.name = name;
-    car.model = model;
-    car.importer = importer;
-    car.color = color;
-    car.year = year;
-    car.price = price;
-    car.photo = photo;
-    await car.save();
-    return car;
+const updateCar = async (_id, name, model, importer, color, year, price, photo) => {
+    await Car.findOneAndUpdate({_id: new ObjectId(_id)}, {
+        $set: {
+            name: name,
+            model: model,
+            importer: importer,
+            color: color,
+            year: year,
+            price: price,
+            photo: photo
+        }
+    }, {upsert: true});
+    return {_id, name, model, importer, color, year, price, photo};
 }
 
 const deleteCar = async (_id) => {

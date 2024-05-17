@@ -11,15 +11,16 @@ const getCars = async (req, res) => {
 }
 
 const getCar = async (req, res) => {
-  const car = await carService.getCarById(req.body._id);
-  if (!car) {
+  const car = await carService.getCarById(req.query._id);
+  if (!car[0]) {
       return res.status(404).json({ errors: ['Car not found'] });
   }
 
-  res.json(car);
+  res.json(car[0]);
 }
 
 const updateCar = async (req, res) => {
+  console.log("Body: " + req.body);
   if (!req.body._id || !req.body.name || !req.body.model || !req.body.importer || !req.body.color || !req.body.year || !req.body.price || !req.body.photo) {
     res.status(400).json({
       message: "importer, color, year, price are required",
