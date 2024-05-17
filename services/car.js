@@ -49,6 +49,7 @@ const updateCar = async (_id, name, model, importer, color, year, price) => {
     car.color = color;
     car.year = year;
     car.price = price;
+    car.photo = photo;
     await car.save();
     return car;
 }
