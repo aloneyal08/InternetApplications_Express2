@@ -102,20 +102,26 @@ const replaceAdd = () => {
         form.reset();
     }
     if(formOpen){
-        btn.classList.remove("popdown");
-        btn.classList.add("popup");
+        if(!isUpdate){
+            btn.classList.remove("popdown");
+            btn.classList.add("popup");
+        }
         form.classList.add("popdown");
         form.classList.remove("popup");
         setTimeout(() => {
-            isUpdate = false;
-            formOpen = false;
             form.style.display = "none";
-            btn.style.display = "block";}, 400);
+            if(!isUpdate){
+                btn.style.display = "block";
+            }
+            isUpdate = false;
+            formOpen = false;}, 400);
     }else{
         form.classList.remove("popdown");
         form.classList.add("popup");
-        btn.classList.add("popdown");
-        btn.classList.remove("popup");
+        if(!isUpdate){
+            btn.classList.add("popdown");
+            btn.classList.remove("popup");
+        }
         setTimeout(() => {
             formOpen = true;
             let sub = document.getElementById("submit");
@@ -129,7 +135,9 @@ const replaceAdd = () => {
                 title.textContent = "Add Car";
             }
             form.style.display = "flex";
-            btn.style.display = "none";}, 400);
+            if(!isUpdate){
+                btn.style.display = "none";
+            }}, 400);
     }
 };
 const deleteCar = (e) =>{
