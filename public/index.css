@@ -1,6 +1,12 @@
+@font-face {
+    font-family: stdFont;
+    src: url(./ProductSansRegular.ttf);
+}
+
 body{
     display: flex;
     flex-direction: column;
+    font-family: stdFont, Arial, Helvetica, sans-serif;
 }
 #title{
     align-self: center;
@@ -76,6 +82,16 @@ input[type=color].formPart{
 .cardTxt{
     display: flex;
 }
+
+.card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.deleteButton {
+    position: absolute;
+}
+
 @keyframes show-popup {
 	0% {
 		scale: .7;

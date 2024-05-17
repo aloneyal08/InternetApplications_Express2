@@ -1,12 +1,12 @@
 const carService = require('../services/car');
 
 const createCar = async (req, res) => {
-  const newCar = await carService.createCar(req.body.name, req.body.model, req.body.importer, req.body.color, req.body.year, req.body.price);
+  const newCar = await carService.createCar(req.body.name, req.body.model, req.body.importer, req.body.color, req.body.year, req.body.price, req.body.photo);
   res.json(newCar);
 }
 
 const getCars = async (req, res) => {
-  const cars = await carService.getCars();
+  const cars = await carService.getCars(req.query.key.toLowerCase());
   res.json(cars);
 }
 

@@ -17,10 +17,13 @@
             <input required class="formPart" id="year" name="year" min="1886" step="1" type="number">
             <label class="formPart" for="price">Enter Car's Price</label>
             <input required class="formPart" id="price" name="price" min="0" step="0.01" type="number">
+            <label class="formPart" for="photo">Enter Car's Photo</label>
+            <input class="formPart" id="photo" name="photo" type="url">
             <input class="formPart" id="submit" name="submit" value="Add Car" type="submit">
             <input class="formPart" id="cancel" name="cancel" value="Cancel" type="button" onclick="replaceAdd()">
         </form>
         <h1 id="title">Welcome to the Cars Database</h1>
+        <input id="search" type="text" placeholder="Search for cars..." onkeyup="getCars()">
         <div id="carsContainer">
             <div id="addContainer">
                 <button class="card" id="add" onclick="replaceAdd()">+</button>

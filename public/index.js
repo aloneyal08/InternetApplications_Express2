@@ -4,9 +4,11 @@ const getCars = async () => {
         let txt = "";
         const obj = JSON.parse(xhr.responseText); 
         obj.forEach(car => {
+            const photo = car.photo && car.photo!="" ? car.photo : "https://media.istockphoto.com/id/1133431051/vector/car-line-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=E9t9aitIGYdX-cggrORFCY1dZR-Y8ff37MbXXLDrv9I=";
             const carTxt = `
                 <div id="${car._id}" class="card">
-                    <button onclick="deleteCar(this)">X</button>
+                    <button onclick="deleteCar(this)" class="deleteButton">X</button>
+                    <img src="${photo}" alt="Car photo">
                     <h4 class="cardTxt">Name: ${car.name}</h4>
                     <h4 class="cardTxt">Model: ${car.model}</h4>
                     <h4 class="cardTxt">Importer: ${car.importer}</h4>
@@ -14,13 +16,12 @@ const getCars = async () => {
                     <h4 class="cardTxt">Year: ${car.year}</h4>
                     <h4 class="cardTxt">Price: ${car.price}</h4>
                 </div>`;
-            console.log(carTxt);
             txt += carTxt;
         });
         document.getElementById("carsContainer").innerHTML = txt + document.getElementById("addContainer").outerHTML;
      }
 
-    xhr.open("GET", "/cars");
+    xhr.open("GET", `/cars/?key=${document.getElementById("search").value}`);
     xhr.setRequestHeader("Content-type", "application/json"); 
     xhr.send();
 }
@@ -33,9 +34,11 @@ const submit = () => {
         importer: inputs[5].value,
         color: inputs[7].value,
         year: inputs[9].value,
-        price: inputs[11].value
+        price: inputs[11].value,
+        photo: inputs[13].value
     };
-    getCards();
+    console.log(obj);
+    getCars();
     xhr.open("POST", "/cars");
     xhr.setRequestHeader("Content-type", "application/json"); 
     xhr.send(JSON.stringify(obj));
