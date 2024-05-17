@@ -20,13 +20,13 @@ const getCar = async (req, res) => {
 }
 
 const updateCar = async (req, res) => {
-  if (!req.body.importer || !req.body.color || !req.body.year || !req.body.price) {
+  if (!req.body._id || !req.body.name || !req.body.model || !req.body.importer || !req.body.color || !req.body.year || !req.body.price || !req.body.photo) {
     res.status(400).json({
       message: "importer, color, year, price are required",
     });
   }
 
-  const car = await carService.updateCar(req.params._id, req.params.name, req.params.model, req.body.importer, req.body.color, req.body.year, req.body.price);
+  const car = await carService.updateCar(req.body._id, req.body.name, req.body.model, req.body.importer, req.body.color, req.body.year, req.body.price, req.body.photo);
   if (!car) {
     return res.status(404).json({ errors: ['Car not found'] });
   }

@@ -140,7 +140,6 @@ input[type=button].formPart:active, input[type=submit].formPart:active{
 }
 
 .deleteButton {
-    position: absolute;
     width: 35px;
     height: 35px;
     background-image: url(https://static-00.iconduck.com/assets.00/delete-icon-1864x2048-bp2i0gor.png);
@@ -155,6 +154,28 @@ input[type=button].formPart:active, input[type=submit].formPart:active{
 .deleteButton:hover {
     background-color: rgb(255, 0, 0);
     transition: 0.2s;
+}
+.updateButton {
+    width: 35px;
+    height: 35px;
+    background-image: url(https://www.pngkey.com/png/full/906-9062233_edit-button-white-icon-png.png);
+    background-size: 70% 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid black;
+}
+.updateButton:hover {
+    background-color: rgb(0, 0, 255);
+    transition: 0.2s;
+}
+.actContainer{
+    position: absolute;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
 }
 
 #btnContainer{
