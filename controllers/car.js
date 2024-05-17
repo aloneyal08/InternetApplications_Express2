@@ -12,7 +12,7 @@ const getCars = async (req, res) => {
 }
 
 const getCar = async (req, res) => {
-  const car = await carService.getCarByNameModel(req.params.name, req.params.model);
+  const car = await carService.getCarById(req.params._id);
   if (!car) {
       return res.status(404).json({ errors: ['Car not found'] });
   }
@@ -27,7 +27,7 @@ const updateCar = async (req, res) => {
     });
   }
 
-  const car = await carService.updateCar(req.params.name, req.params.model, req.body.importer, req.body.color, req.body.year, req.body.price);
+  const car = await carService.updateCar(req.params._id, req.params.name, req.params.model, req.body.importer, req.body.color, req.body.year, req.body.price);
   if (!car) {
     return res.status(404).json({ errors: ['Car not found'] });
   }
@@ -36,7 +36,7 @@ const updateCar = async (req, res) => {
 }
 
 const deleteCar = async (req, res) => {
-  const car = await carService.deleteCar(req.params.name, req.params.model);
+  const car = await carService.deleteCar(req.body._id);
   if (!car) {
     return res.status(404).json({ errors: ['Car not found'] });
   }

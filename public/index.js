@@ -1,9 +1,25 @@
 const getCars = async () => {
     const xhr = new XMLHttpRequest();
     xhr.onload = () => {
+        let txt = "";
         const obj = JSON.parse(xhr.responseText); 
-        console.log(obj);
-    }
+        obj.forEach(car => {
+            const carTxt = `
+                <div id="${car._id}" class="card">
+                    <button onclick="deleteCar(this)">X</button>
+                    <h4 class="cardTxt">Name: ${car.name}</h4>
+                    <h4 class="cardTxt">Model: ${car.model}</h4>
+                    <h4 class="cardTxt">Importer: ${car.importer}</h4>
+                    <h4 class="cardTxt">Color:⠀⠀<div class="colorBlock" style="background-color: ${car.color};"></div></h4>
+                    <h4 class="cardTxt">Year: ${car.year}</h4>
+                    <h4 class="cardTxt">Price: ${car.price}</h4>
+                </div>`;
+            console.log(carTxt);
+            txt += carTxt;
+        });
+        document.getElementById("carsContainer").innerHTML = txt + document.getElementById("addContainer").outerHTML;
+     }
+
     xhr.open("GET", "/cars");
     xhr.setRequestHeader("Content-type", "application/json"); 
     xhr.send();
@@ -44,3 +60,8 @@ const replaceAdd = () => {
         btn.style.display = "none";}, 900);
     }
 };
+const deleteCar = (e) =>{
+    const xhr = new XMLHttpRequest();
+    xhr.open("DELETE", "/car");
+    xhr.send(e.parentElement.id);
+}

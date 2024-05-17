@@ -6,7 +6,7 @@ router.route('/cars')
     .get(carController.getCars)
     .post(carController.createCar);
 
-router.route('/:name/:model')
+router.route('/car')
     .get(carController.getCar)
     .patch(carController.updateCar)
     .delete(carController.deleteCar);

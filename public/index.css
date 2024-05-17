@@ -5,18 +5,22 @@ body{
 #title{
     align-self: center;
 }
-#cardsContainer{
+#carsContainer{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    gap: 25px;
 }
 .card{
     transition: 0.1s;
     border: 2px solid black;
     border-radius: 5px;
-    font-size: 75px;
     width: 300px;
     height: 300px;
+}
+#add{
     background-color: rgb(228, 228, 228);
+    font-size: 75px;
 }
 #add:hover{
     transition: 0.1s;
@@ -57,6 +61,14 @@ input.formPart{
 }
 input[type=color].formPart{
     border: none;
+}
+.colorBlock{
+    display: block;
+    width: 75px;
+    height: 25px;
+}
+.cardTxt{
+    display: flex;
 }
 @keyframes show-popup {
 	0% {
