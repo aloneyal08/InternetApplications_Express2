@@ -56,7 +56,9 @@ const getCars = async () => {
                     <h4 class="cardTxt carYear">${car.year}</h4>
                     <h4 class="cardTxt carImporter">Importer: ${car.importer}</h4>
                     <h4 class="cardTxt carPrice">${car.price}₪</h4>
-                    <img src="${car.logo}" alt=" " class="logo">
+                    ${
+                        car.logo ? `<img src="${car.logo}" alt=" " class="logo">` : ""
+                    }
                 </div>`;
             txt += carTxt;
         });
