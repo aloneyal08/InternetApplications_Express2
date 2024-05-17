@@ -21,8 +21,11 @@ body{
     transition: 0.1s;
     border: 2px solid black;
     border-radius: 5px;
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
 }
 #add{
     background-color: rgb(228, 228, 228);
@@ -122,11 +125,31 @@ input[type=submit].formPart:active{
 
 .card img{
     width: 100%;
-    height: 200px;
+    height: 150px;
     object-fit: cover;
 }
+
+.card h4 {
+    margin: 0;
+    padding: 0;
+}
+
 .deleteButton {
     position: absolute;
+    width: 35px;
+    height: 35px;
+    background-image: url(https://static-00.iconduck.com/assets.00/delete-icon-1864x2048-bp2i0gor.png);
+    background-size: 70% 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid black;
+}
+.deleteButton:hover {
+    background-color: rgb(255, 0, 0);
+    transition: 0.2s;
 }
 
 #btnContainer{
@@ -134,6 +157,26 @@ input[type=submit].formPart:active{
     flex-direction:row;
     justify-content: space-between;
 }
+
+.card:hover{
+    transition: 0s;
+    position: relative;
+    bottom: 5px;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+}
+
+.carName {
+    font-size: 30px;
+    font-weight: 800;
+}
+.carImporter {
+    margin-top: 10px !important;
+    font-size: 15px;
+}
+.carPrice {
+    font-size: 15px;
+}
+
 @keyframes show-popup {
 	0% {
 		scale: .7;

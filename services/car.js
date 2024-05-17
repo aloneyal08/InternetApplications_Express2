@@ -1,5 +1,6 @@
 const Car = require('../models/car');
 var ObjectId = require('mongodb').ObjectId;
+var car_companies = require('../car_companies.json');
 
 const createCar = async (name, model, importer, color, year, price, photo) => {
     const car = new Car({
@@ -25,7 +26,16 @@ const getCars = async (key) => {
         return car.name.toLowerCase().includes(key) || car.model.toLowerCase().includes(key) 
                 || car.importer.toLowerCase().includes(key) || car.color.toLowerCase().includes(key)
                 || car.year.toString().toLowerCase().includes(key) || car.price.toString().toLowerCase().includes(key);
+    }).map(car => {
+        var logo = "";
+        car_companies.car_companies.forEach(company => {
+            if (car.name.toLowerCase().includes(company.name.toLowerCase()) || company.name.toLowerCase().includes(car.name.toLowerCase())) {
+                logo = company.logo;
+            }
+        });
+        return Object.assign({}, car._doc, {logo: logo});
     });
+    console.log(cars);
     return cars;
 }
 
