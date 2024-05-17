@@ -1,4 +1,9 @@
+var emptyCar = "";
 const getCars = async () => {
+    if(emptyCar == ""){
+        emptyCar = document.getElementById("carsContainer").innerHTML;
+    }
+    document.getElementById("carsContainer").innerHTML = emptyCar;
     const xhr = new XMLHttpRequest();
     xhr.onload = () => {
         let txt = "";
@@ -18,7 +23,7 @@ const getCars = async () => {
                 </div>`;
             txt += carTxt;
         });
-        document.getElementById("carsContainer").innerHTML = txt + document.getElementById("addContainer").outerHTML;
+        document.getElementById("carsContainer").innerHTML = txt + document.getElementById("carsContainer").innerHTML;
      }
 
     xhr.open("GET", `/cars/?key=${document.getElementById("search").value}`);
@@ -37,7 +42,6 @@ const submit = () => {
         price: inputs[11].value,
         photo: inputs[13].value
     };
-    console.log(obj);
     getCars();
     xhr.open("POST", "/cars");
     xhr.setRequestHeader("Content-type", "application/json"); 
@@ -54,7 +58,7 @@ const replaceAdd = () => {
         form.classList.remove("popup");
         setTimeout(() => {
             form.style.display = "none";
-            btn.style.display = "block";}, 900);
+            btn.style.display = "block";}, 400);
     }else{
         form.classList.remove("popdown");
         form.classList.add("popup");
@@ -62,7 +66,7 @@ const replaceAdd = () => {
         btn.classList.remove("popup");
         setTimeout(() => {
         form.style.display = "flex";
-        btn.style.display = "none";}, 900);
+        btn.style.display = "none";}, 400);
     }
 };
 const deleteCar = (e) =>{

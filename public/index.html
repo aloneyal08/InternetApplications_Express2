@@ -14,13 +14,15 @@
             <label class="formPart" for="color">Enter Car's Color</label>
             <input required class="formPart" id="color" name="color" type="color">
             <label class="formPart" for="year">Enter Car's Year</label>
-            <input required class="formPart" id="year" name="year" min="1886" step="1" type="number">
+            <input required class="formPart" value="1886" id="year" name="year" min="1886" step="1" type="number">
             <label class="formPart" for="price">Enter Car's Price</label>
-            <input required class="formPart" id="price" name="price" min="0" step="0.01" type="number">
+            <input required class="formPart" id="price" value="0" name="price" min="0" step="0.01" type="number">
             <label class="formPart" for="photo">Enter Car's Photo</label>
             <input class="formPart" id="photo" name="photo" type="url">
-            <input class="formPart" id="submit" name="submit" value="Add Car" type="submit">
-            <input class="formPart" id="cancel" name="cancel" value="Cancel" type="button" onclick="replaceAdd()">
+            <div id="btnContainer">
+                <input class="formPart" id="submit" name="submit" value="Add Car" type="submit">
+                <input class="formPart" id="cancel" name="cancel" value="Cancel" type="button" onclick="replaceAdd()">
+            </div>
         </form>
         <h1 id="title">Welcome to the Cars Database</h1>
         <input id="search" type="text" placeholder="Search for cars..." onkeyup="getCars()">
