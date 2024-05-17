@@ -25,9 +25,15 @@ html{
     top: -10px;
     left: -10px;
     filter: blur(3px);
+    transform: scaleY(-1);
 }
 #title{
     align-self: center;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-weight: 800;
+    font-size: 30px;
 }
 #carsContainer{
     display: flex;
@@ -64,8 +70,9 @@ html{
 #addForm{
     z-index: 10;
     position: absolute;
-    left: calc(50% - 20vw);
-    top: calc(50% - 43vh);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     background-color: rgb(232, 232, 232);
     display: none;
     flex-direction: column;
@@ -229,13 +236,19 @@ input[type=button].formPart:active, input[type=submit].formPart:active{
 .carName {
     font-size: 30px;
     font-weight: 800;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .carImporter {
     margin-top: 10px !important;
     font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .carPrice {
     font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .logo {

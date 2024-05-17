@@ -28,13 +28,13 @@ const getCars = async (key) => {
     }).map(car => {
         var logo = "";
         car_companies.forEach(company => {
+
             if (car.name.toLowerCase().includes(company.name.toLowerCase())) {
                 logo = company.image.source;
             }
         });
         return Object.assign({}, car._doc, {logo: logo});
     });
-    console.log(cars);
     return cars;
 }
 

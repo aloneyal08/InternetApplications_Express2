@@ -208,19 +208,6 @@
     }
   },
   {
-    "name": "ARO",
-    "slug": "aro",
-    "image": {
-      "source": "https://www.carlogos.org/logo/Gilbern-logo.png",
-      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/aro.png",
-      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/aro.png",
-      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/aro.png",
-      "localThumb": "./thumb/aro.png",
-      "localOptimized": "./optimized/aro.png",
-      "localOriginal": "./original/aro.png"
-    }
-  },
-  {
     "name": "Ariel",
     "slug": "ariel",
     "image": {

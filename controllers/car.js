@@ -20,7 +20,6 @@ const getCar = async (req, res) => {
 }
 
 const updateCar = async (req, res) => {
-  console.log("Body: " + req.body);
   if (!req.body._id || !req.body.name || !req.body.model || !req.body.importer || !req.body.color || !req.body.year || !req.body.price || !req.body.photo) {
     res.status(400).json({
       message: "importer, color, year, price are required",
