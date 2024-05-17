@@ -3,10 +3,27 @@
     src: url(./ProductSansRegular.ttf);
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
+}
+
+html{
     font-family: stdFont, Arial, Helvetica, sans-serif;
+}
+
+.background {
+    background-image: url(https://coolbackgrounds.io/images/unsplash/samuel-zeller-medium-b832fe04.jpg);
+    background-size: cover;
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    background-repeat:   no-repeat;
+    backdrop-filter: blur(5px);
+    z-index: -1;
+    top: -10px;
+    left: -10px;
+    filter: blur(3px);
 }
 #title{
     align-self: center;
@@ -81,7 +98,6 @@ input.formPart{
     color: rgb(32, 36, 47);
     font-size: 14px;
     background-color: rgb(249, 250, 251);
-    margin-bottom: 20px;
 }
 input.formPart:focus{
     outline: none;
@@ -91,6 +107,9 @@ input.formPart:focus{
 }
 label.formPart{
     margin-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    padding-left: 5px;
     color: rgb(55, 65, 81);
 }
 input[type=color].formPart{
@@ -128,7 +147,7 @@ input[type=button].formPart:active, input[type=submit].formPart:active{
     display: flex;
 }
 
-.card img{
+.carPhoto{
     width: 100%;
     height: 150px;
     object-fit: cover;
@@ -137,6 +156,20 @@ input[type=button].formPart:active, input[type=submit].formPart:active{
 .card h4 {
     margin: 0;
     padding: 0;
+}
+#addForm h1{
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    display: flex;
+    height: 40px;
+}
+
+#addForm h1 img{
+    height: 40px;
+    margin-right: 10px;
+    position: relative;
+    top: 3px;
 }
 
 .deleteButton {
@@ -158,6 +191,7 @@ input[type=button].formPart:active, input[type=submit].formPart:active{
 }
 
 #btnContainer{
+    margin-top: 20px;
     display: flex;
     flex-direction:row;
     justify-content: space-between;
@@ -180,6 +214,13 @@ input[type=button].formPart:active, input[type=submit].formPart:active{
 }
 .carPrice {
     font-size: 15px;
+}
+
+.logo {
+    width: auto;
+    height: 50px;
+    width: auto;
+    float: right;
 }
 
 @keyframes show-popup {

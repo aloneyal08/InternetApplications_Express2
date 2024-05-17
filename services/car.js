@@ -28,9 +28,9 @@ const getCars = async (key) => {
                 || car.year.toString().toLowerCase().includes(key) || car.price.toString().toLowerCase().includes(key);
     }).map(car => {
         var logo = "";
-        car_companies.car_companies.forEach(company => {
-            if (car.name.toLowerCase().includes(company.name.toLowerCase()) || company.name.toLowerCase().includes(car.name.toLowerCase())) {
-                logo = company.logo;
+        car_companies.forEach(company => {
+            if (car.name.toLowerCase().includes(company.name.toLowerCase())) {
+                logo = company.image.source;
             }
         });
         return Object.assign({}, car._doc, {logo: logo});

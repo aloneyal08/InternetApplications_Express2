@@ -39,12 +39,12 @@ const getCars = async () => {
             const carTxt = `
                 <div id="${car._id}" class="card" style="background-color: ${car.color}; color: ${getTextColor(car.color.toUpperCase())}">
                     <button onclick="deleteCar(this)" class="deleteButton"></button>
-                    <img src="${photo}" alt="Car photo">
+                    <img src="${photo}" alt="Car photo" class="carPhoto">
                     <h4 class="cardTxt carName">${car.name} - ${car.model}</h4>
                     <h4 class="cardTxt carYear">${car.year}</h4>
                     <h4 class="cardTxt carImporter">Importer: ${car.importer}</h4>
                     <h4 class="cardTxt carPrice">${car.price}₪</h4>
-                    <img src="${car.logo}" alt="Company logo">
+                    <img src="${car.logo}" alt=" " class="logo">
                 </div>`;
             txt += carTxt;
         });
