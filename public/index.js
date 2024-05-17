@@ -38,12 +38,11 @@ const getCars = async () => {
             const photo = car.photo && car.photo!="" ? car.photo : "https://media.istockphoto.com/id/1133431051/vector/car-line-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=E9t9aitIGYdX-cggrORFCY1dZR-Y8ff37MbXXLDrv9I=";
             const carTxt = `
                 <div id="${car._id}" class="card" style="background-color: ${car.color}; color: ${getTextColor(car.color.toUpperCase())}">
-                    <img src="${photo}" alt="Car photo" class="carPhoto">
                     <div class="actContainer">
                         <button onclick="deleteCar(this)" class="deleteButton"></button>
                         <button onclick="showFormUpdate(this)" class="updateButton"></button>
                     </div>
-                    <img src="${photo}" alt="Car photo">
+                    <img src="${photo}" alt="Car photo" class="carPhoto">
                     <h4 class="cardTxt carName">${car.name} - ${car.model}</h4>
                     <h4 class="cardTxt carYear">${car.year}</h4>
                     <h4 class="cardTxt carImporter">Importer: ${car.importer}</h4>
