@@ -112,6 +112,7 @@ const replaceAdd = () => {
         form.classList.remove("popup");
         setTimeout(() => {
             form.style.display = "none";
+            document.getElementById("popupBack").style.display = "none";
             if(!isUpdate){
                 btn.style.display = "block";
             }
@@ -120,6 +121,7 @@ const replaceAdd = () => {
     }else{
         form.classList.remove("popdown");
         form.classList.add("popup");
+        document.getElementById("popupBack").style.display = "block";
         if(!isUpdate){
             btn.classList.add("popdown");
             btn.classList.remove("popup");
@@ -139,6 +141,7 @@ const replaceAdd = () => {
             form.style.display = "flex";
             if(!isUpdate){
                 btn.style.display = "none";
+
             }}, 400);
     }
 };
