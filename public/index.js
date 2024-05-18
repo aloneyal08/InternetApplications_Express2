@@ -143,6 +143,9 @@ const replaceAdd = () => {
     }
 };
 const deleteCar = (e) =>{
+    if(formOpen){
+        return;
+    }
     const xhr = new XMLHttpRequest();
     xhr.onload = () =>{
         getCars();
