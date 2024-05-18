@@ -1,3 +1,7 @@
+/*
+  Names: Yaniv Eshcol, Alon Eyal
+  Ids:   331940239     331574491 
+*/
 const calcFontSize = (text, maxSize) => {
     const textLength = text.length;
     if(textLength < 10) return maxSize;

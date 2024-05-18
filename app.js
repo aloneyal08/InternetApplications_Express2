@@ -1,3 +1,7 @@
+/*
+  Names: Yaniv Eshcol, Alon Eyal
+  Ids:   331940239     331574491 
+*/
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -14,8 +18,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.use('/', cars);
-
 mongoose.connection.once('open', () => {
-  app.listen(88);
   console.log('Server started');
+  app.listen(88);
 });
